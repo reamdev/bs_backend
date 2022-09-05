@@ -4,7 +4,7 @@ const dotenv_1 = require("dotenv");
 (0, dotenv_1.config)();
 exports.default = {
     app: {
-        port: process.env.PORT || 8000
+        port: process.env.PORT || 80
     },
     db: {
         host: process.env.DB_HOST || 'localhost',

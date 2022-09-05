@@ -4,7 +4,7 @@ config()
 
 export default {
   app: {
-    port: process.env.PORT || 8000
+    port: process.env.PORT || 80
   },
   db: {
     host: process.env.DB_HOST || 'localhost',
