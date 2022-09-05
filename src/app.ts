@@ -3,6 +3,7 @@ import express from 'express'
 import morgan from 'morgan'
 import { CategoryRouter, ProductRouter } from './routes'
 import cors from 'cors'
+import config from './config'
 
 initConnection()
 const app = express()
@@ -19,6 +20,6 @@ app.get('/', (_, res) => {
 app.use('/api/v1/products', ProductRouter)
 app.use('/api/v1/categories', CategoryRouter)
 
-app.listen(8000, () => {
-  console.log('Server is running on port 8000')
+app.listen(config.app, () => {
+  console.log(`Server is running on port ${config.app.port}`)
 })
