@@ -13,8 +13,7 @@
     "start": "node dist/app.js",
     "run": "node dist/app.js",
     "dev": "ts-node-dev src/app.ts",
-    "tsc": "tsc",
-    "build": "tsc"
+    "tsc": "tsc"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
