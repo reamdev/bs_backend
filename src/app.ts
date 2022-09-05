@@ -13,6 +13,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
+app.use('/', (_, res) => {
+  res.send('Welcome to BS_Backend')
+})
 app.use('/api/v1/products', ProductRouter)
 app.use('/api/v1/categories', CategoryRouter)
 
