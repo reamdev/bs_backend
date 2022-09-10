@@ -10,11 +10,11 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node dist/app.js",
-    "run": "node dist/app.js",
+    "start": "node src/app.js",
+    "run": "node src/app.js",
     "dev": "ts-node-dev src/app.ts",
     "tsc": "tsc",
-    "build": "tsc"
+    "build": "tsc --build"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
