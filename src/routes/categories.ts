@@ -3,6 +3,7 @@ import { Router } from 'express'
 
 const router = Router()
 
+// End Point para obtener datos sobre las categorias
 router.get('/', async (req, res) => {
   const { id } = req.query
   const orderBy = (req.query.order && (req.query.order === 'asc' || req.query.order === 'desc')) ? req.query.order : 'asc'

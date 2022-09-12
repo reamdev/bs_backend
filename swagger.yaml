@@ -1,0 +1,156 @@
+openapi: 3.0.0
+info:
+  title: BSALE Backend Doc
+  description: Una API para la prueba tecnica para la empresa BSALE
+  version: 1.0.0
+servers:
+  - url: https://reambsbackend.herokuapp.com
+  description: Servidor de produccion
+apis:
+  /api/v1/products:
+    get:
+      summary: Nos devuelve los datos de los productos de la base de datos.
+      tags: [Producto]
+      parameters:
+        - name: categoryId
+          in: query
+          description: El ID de la categoria, de la cual, queremos que sean los productos.
+          schema:
+            type: number
+        - name: limit
+          in: query
+          description: El maximo de datos que queremos que traiga la peticion
+          schema:
+            type: number
+        - name: page
+          in: query
+          description: Este campo es para la paginacion pertiendonos indicar en que pagina nos encontramos para obtener los datos.
+          schema:
+            type: number
+        - name: order
+          in: query
+          description: Indica el tipo de orden que se debe seguir, este puede ser ascendente (asc) o desendente (desc)
+          schema:
+            type: string
+      responses:
+        200:
+          descripcion: Un array de JSON de productos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                    descripcion: El ID del producto
+                  name:
+                    type: string
+                    descripcion: El nombre del producto
+                  url:
+                    type: string
+                    descripcion: La URL de la imagen asociada al producto
+                  price:
+                    type: number
+                    descripcion: El precio del producto
+                  discount:
+                    type: number
+                    descripcion: El porcentaje de descuento
+                  category:
+                    type: number
+                    descripcion: El ID de la categoria asociada al producto
+
+  /api/v1/products/search:
+    get:
+      summary: Permite buscar productos por su nombre
+      tags: [Producto]
+      parameters:
+        - name: value
+          in: query
+          description: Este campo contiene el valor del nombre a buscar para encontrar los productos que coincida con este.
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: El maximo de datos que queremos que traiga la peticion
+          schema:
+            type: number
+        - name: page
+          in: query
+          description: Este campo es para la paginacion pertiendonos indicar en que pagina nos encontramos para obtener los datos.
+          schema:
+            type: number
+        - name: order
+          in: query
+          description: Indica el tipo de orden que se debe seguir, este puede ser ascendente (asc) o desendente (desc)
+          schema:
+            type: string
+      responses:
+        200:
+          descripcion: Un array de JSON de productos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                    descripcion: El ID del producto
+                  name:
+                    type: string
+                    descripcion: El nombre del producto
+                  url:
+                    type: string
+                    descripcion: La URL de la imagen asociada al producto
+                  price:
+                    type: number
+                    descripcion: El precio del producto
+                  discount:
+                    type: number
+                    descripcion: El porcentaje de descuento
+                  category:
+                    type: number
+                    descripcion: El ID de la categoria asociada al producto
+
+components:
+  schemas:
+    Categoria:
+      type: object
+      properties:
+        id:
+          type: number
+          descripcion: El ID de la categoria
+        name:
+          type: string
+          descripcion: El nombre de la categoria
+      example:
+        id: 4
+        name: bebida
+
+    Producto:
+      type: object
+      properties:
+        id:
+          type: number
+          descripcion: El ID del producto
+        name:
+          type: string
+          descripcion: El nombre del producto
+        url:
+          type: string
+          descripcion: La URL de la imagen asociada al producto
+        price:
+          type: number
+          descripcion: El precio del producto
+        discount:
+          type: number
+          descripcion: El porcentaje de descuento
+        category:
+          type: number
+          descripcion: El ID de la categoria asociada al producto
+      example:
+        id: 104
+        name: ABSOLUT
+        url: www.example.com/bebida.png
+        price: 8990
+        discount: 30
+        category: 7

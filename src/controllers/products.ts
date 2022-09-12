@@ -1,6 +1,7 @@
 import { OrderByType } from 'database'
 import { execute } from '../db'
 
+// Recibe los parametros del router y los procesa para solicitar los productos
 export const getAllProducts = async (categoryId = '', order: OrderByType = 'asc', limit = 12, offset = 0) => {
   let sql = 'SELECT * FROM product'
   let params: Array<string | number> = []
@@ -14,11 +15,10 @@ export const getAllProducts = async (categoryId = '', order: OrderByType = 'asc'
   sql += ' LIMIT ? OFFSET ?'
   params = [...params, limit, offset]
 
-  // const sql = categoryId !== '' ? 'SELECT * FROM product WHERE category = ? LIMIT ? OFFSET ?' : 'SELECT * FROM product LIMIT ? OFFSET ?'
-  // const params = categoryId !== '' ? [categoryId, limit, offset] : [limit, offset]
   return await execute(sql, params)
 }
 
+// Recibe los parametros del router y los procesa para buscar productos que coincidan con el criterio
 export const searchProduct = async (search = '', order: OrderByType = 'asc', limit = 12, offset = 0) => {
   const sql = `
     SELECT

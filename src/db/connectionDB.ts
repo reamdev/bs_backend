@@ -3,6 +3,7 @@ import config from '../config'
 
 let conector: Pool
 
+// Iniciliza la instancia de la base de datos
 export const initConnection = () => {
   try {
     conector = createPool({
@@ -26,6 +27,7 @@ export const initConnection = () => {
   }
 }
 
+// Funcion para ejecutar queries en la base de datos
 export const execute = <T>(query: string, params: string[] | object): Promise<T> => {
   try {
     if (!conector) throw new Error('Pool is not initialized')

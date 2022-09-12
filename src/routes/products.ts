@@ -3,6 +3,7 @@ import { Router } from 'express'
 
 const router = Router()
 
+// End Point para obtener los productos
 router.get('/', async (req, res) => {
   const categoryId = req.query.category ? String(req.query.category) : ''
   const limit = req.query.limit ? Number(req.query.limit) : 50
@@ -14,6 +15,7 @@ router.get('/', async (req, res) => {
   res.send(response)
 })
 
+// End Point para buscar productos por su nombre
 router.get('/search', async (req, res) => {
   const search = req.query.value ? String(req.query.value) : ''
   const limit = req.query.limit ? Number(req.query.limit) : 50

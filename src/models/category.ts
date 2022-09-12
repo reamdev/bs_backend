@@ -1,3 +1,4 @@
+// Modelo para las Categorias
 export class Category {
   private id: number
   private name: string

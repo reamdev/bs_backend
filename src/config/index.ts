@@ -1,7 +1,9 @@
 import { config } from 'dotenv'
 
+// Cargar archivo .env
 config()
 
+// Exportando datos del archivo .env
 export default {
   app: {
     port: process.env.PORT || 80

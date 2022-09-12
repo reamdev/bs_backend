@@ -1,3 +1,4 @@
+// Modelo para los Productos
 export class Product {
   private id: number
   private name: string
